@@ -1,22 +1,20 @@
 package org.cafeteria.service;
 
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
+import java.net.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 
 public class freeCafeteriaServiceImpl {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         StringBuilder urlBuilder = new StringBuilder("http://api.data.go.kr/openapi/tn_pubr_public_free_mlsv_api"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "=서비스키"); /*Service Key*/
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey", "UTF-8") + "="); /*Service Key*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
         urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("100", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode("xml", "UTF-8")); /*XML/JSON 여부*/
+        urlBuilder.append("&" + URLEncoder.encode("type", "UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*XML/JSON 여부*/
         urlBuilder.append("&" + URLEncoder.encode("fcltyNm", "UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*시설명*/
-        urlBuilder.append("&" + URLEncoder.encode("rdnmadr", "UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*소재지도로명주소*/
+        urlBuilder.append("&" + URLEncoder.encode("rdnmadr", "UTF-8") + "=" + URLEncoder.encode("논현로", "UTF-8")); /*소재지도로명주소*/
         urlBuilder.append("&" + URLEncoder.encode("lnmadr", "UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*소재지지번주소*/
         urlBuilder.append("&" + URLEncoder.encode("operInstitutionNm", "UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*운영기관명*/
         urlBuilder.append("&" + URLEncoder.encode("phoneNumber", "UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*전화번호*/
